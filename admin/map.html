@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+    <script>
+
+    function initialize() {
+
+      var myLatlng = new google.maps.LatLng(42.902855,-73.687341);
+      var mapOptions = {
+        zoom: 13,
+        center: myLatlng
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Hello World!'
+      });
+
+      // Add circle overlay and bind to marker
+      var circle = new google.maps.Circle({
+        map: map,
+        radius: 4023.36,    // 10 miles in metres
+        fillColor: '#AA0000'
+      });
+      circle.bindTo('center', marker, 'position');
+
+      var bounds = circle.getBounds();
+
+      var geocoder;
+      geocoder = new google.maps.Geocoder();
+
+      var address = "7 pruyn avenue mechanicville ny";
+
+      geocoder.geocode( { 'address': address}, function(results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) 
+        {
+          var lat = results[0].geometry.location.lat().toFixed(6);
+          var lng = results[0].geometry.location.lng().toFixed(6);
+
+          // Log into the dev bar console whether the marker is inside or outside
+          latLngA = new google.maps.LatLng(lat, lng);
+
+          var marker2 = new google.maps.Marker({
+              position: latLngA,
+              map: map,
+              title: 'Hello World!'
+          });
+
+          console.log( bounds.contains( latLngA ) );
+        }
+        else 
+        {
+          console.log(google.maps.GeocoderStatus);
+        }
+
+      });
+
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas" style="width:700px; height:600px;"></div>
+  </body>
+</html>
