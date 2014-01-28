@@ -3,8 +3,10 @@
       <div class="row" style="margin-top:10px;">
         <div class="col-lg-10" style="border-bottom: 1px solid #E8E8E8; height:80px;">
 
+          <a href="<?php echo BASE_URL; ?>" class="logo_link">
             <span class="logo"> The Mile </span> 
             <span class="sub_logo"> x Advertising </span>
+          </a>
 
         </div>
 

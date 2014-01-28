@@ -6,9 +6,21 @@ body {
   font-family: 'Oxygen', sans-serif;
   font-size:16px;
 }
+
+.logo_link
+{
+  color:black;
+  text-decoration: none;
+}
+.logo_link:hover{
+  text-decoration: none;
+  color:#292929;
+}
+
 .logo{
   font-size:60px;
   font-family: 'Poller One', cursive;
+  color:;
 
 }
 
@@ -474,10 +486,3 @@ border-color: #924e31 !important; }
   width: 16px;
   height: 16px;
 }
-
-
-
-
-
-
-

@@ -20,7 +20,7 @@ include(VIEWS_URL . "/menu.php");
               </div>
               <div class="panel-body">
 
-                <form method="post" class="add_post" action="<?php echo BASE_URL; ?>/ad/add">
+                <form method="post"  enctype="multipart/form-data" class="add_post" action="<?php echo BASE_URL; ?>/ad/add">
 
                 <div class="row">
                   <div class="col-xs-3">
@@ -150,11 +150,35 @@ include(VIEWS_URL . "/menu.php");
                   </div>
 
 
-                   <div class="col-xs-3">
+                  <div class="col-xs-3">
                     <input name="start_date" type="text" class="form-control start_date">
                   </div>
-
                 </div>
+
+                <hr>
+                <div class="row" style="margin-top:10px;">
+                  <div class="col-xs-6">
+                    <b>Upload File:</b>
+                  </div>
+                  <div class="col-xs-6">
+                    <b>File URL:</b>
+                  </div>
+                </div>
+
+                <div class="row" style="margin-bottom:10px;">
+                  <div class="col-xs-5">
+                      <input name="file" type="file" class="form-control">
+                  </div>
+
+                   <div class="col-xs-1">
+                      <b>Or:</b>
+                  </div>
+
+                  <div class="col-xs-6">
+                    <input name="file_location" type="text" class="form-control">
+                  </div>
+                </div>
+
 
                 <div class="alert alert-danger hide empty_fields"><b>Error!</b> Subject or message must be entered.</div>
 

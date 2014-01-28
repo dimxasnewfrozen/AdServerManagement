@@ -12,17 +12,16 @@ class Groups extends Controller {
 	public function index()
 	{	
 
-		global $config;
+		$group_model = $this->loadModel("group_model");
+		$groups 	 = $group_model->getGroups();
 
 		$header = $this->loadView('header');
-		
 		$header->render();
-
-		$add_post = $this->loadView('show/groups');
-		$add_post->set("user", $this->authed_user);
-
-
-		$add_post->render();
+		$current = $this->loadView('/show/groups');
+		$current->set("current_view", "groups");
+		$current->set("user", $this->authed_user);
+		$current->set("groups", $groups);
+		$current->render();
 
 	}
 
@@ -47,10 +46,25 @@ class Groups extends Controller {
 
 			}
 
-			$this->redirect("/show/groups");
+			$this->redirect("/groups");
 			
 		}
 
+	}
+
+	public function new_group() 
+	{
+		global $config;
+
+		$header = $this->loadView('header');
+		
+		$header->render();
+
+		$add_post = $this->loadView('show/new_group');
+		$add_post->set("user", $this->authed_user);
+		$add_post->set("current_view", "groups");
+
+		$add_post->render();
 	}
 
 }

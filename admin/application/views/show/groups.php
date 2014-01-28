@@ -12,7 +12,7 @@ include(VIEWS_URL . "/menu.php");
 
 		<div class="row">
 			<div class="col-lg-12">
-				<a href='<?php echo BASE_URL; ?>/add/item/group' class="btn btn-primary btn-post"><i class="fa fa-plus-circle"></i> New Group</a>
+				<a href='<?php echo BASE_URL; ?>/groups/new_group' class="btn btn-primary btn-post"><i class="fa fa-plus-circle"></i> New Group</a>
 			</div>
 		</div>
 
@@ -33,7 +33,7 @@ include(VIEWS_URL . "/menu.php");
 							<tr>
 								<td>
 									<a href="#" style="color:red;"><i class="fa fa-trash-o"></i></a>
-									&nbsp;
+									&nbsp;	
 									<a href="#"><i class="fa fa-pencil"></i></a>
 								</td>
 								<td><?php echo $group->guid; ?></td>
@@ -65,7 +65,6 @@ include(VIEWS_URL . "/menu.php");
 
 <?php
 include(VIEWS_URL . "/footer.php");
-
 ?>
 
 </script>

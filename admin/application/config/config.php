@@ -4,7 +4,7 @@
 // constants are defined in index.php off of the root dir
 // Base URL including trailing slash (e.g. http://localhost/)
 $config['app_name']    = APP_NAME;
-$config['app_folder']  = 'pip_mold';
+$config['app_folder']  = 'AdServerManagement';
 $config['base_url']    = '/AdServerManagement/admin';
 $config['view_path']   = APP_DIR . '/views';
 $config['salt'] 	   = "MLaK4F2G";
@@ -15,7 +15,11 @@ $config['css_url']	   = $config['base_url']  . '/assets/css';
 $config['js_url'] 	   = $config['base_url']  . '/assets/js';
 $config['img_url'] 	   = $config['base_url']  . '/assets/img';
 $config['min_url'] 	   = $config['base_url']  . '/assets/min';
-$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . '/assets/uploads';
+
+//$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . '/assets/uploads';
+$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . $config['app_folder'] . "/ads";
+$config['upload_url'] 	= $_SERVER['SERVER_NAME']  . "/" . $config['app_folder'] . "/ads";
+
 
 
 /* DATABASE CONNECTION INFO */

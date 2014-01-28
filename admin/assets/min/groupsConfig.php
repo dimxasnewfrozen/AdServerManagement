@@ -14,9 +14,9 @@ return array(
         '//' . $base_url .'assets/js/show.js'
       ),
 
-    'add' => array(
+    'ad' => array(
         '//' . $base_url .'assets/js/vendor/bootstrap/bootstrap-datepicker.js',
-        '//' . $base_url .'assets/js/add.js'
+        '//' . $base_url .'assets/js/ad.js'
       ),
 
     'signup' => array(
