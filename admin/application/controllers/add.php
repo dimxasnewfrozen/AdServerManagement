@@ -34,6 +34,11 @@ class Add extends Controller {
 	{
 		global $config;
 
+		$group_model = $this->loadModel("group_model");
+		$client_model = $this->loadModel("client_model");
+		$groups 	 = $group_model->getGroups();
+		$clients 	 = $client_model->getClients();
+
 		$header = $this->loadView('header');
 		
 		$header->render();
@@ -41,6 +46,8 @@ class Add extends Controller {
 		$add_post = $this->loadView('show/add');
 		$add_post->set("user", $this->authed_user);
 		$add_post->set("current_view", "current");
+		$add_post->set("groups", $groups);
+		$add_post->set("clients", $clients);
 
 		$add_post->render();
 	}

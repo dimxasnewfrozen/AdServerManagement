@@ -50,7 +50,19 @@ $(document).ready(function () {
       return false;
     }
 
-  }); 
+  });
+
+ $(".phone_number").keyup(function() {
+    var curchr = this.value.length;
+    var curval = $(this).val();
+    if (curchr == 3) {
+      $(this).val("(" + curval + ")" + "-");
+    } else if (curchr == 9) {
+      $(this).val(curval + "-");
+    }
+  });
+
+
 
 
 });

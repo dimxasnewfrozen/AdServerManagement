@@ -20,7 +20,7 @@ include(VIEWS_URL . "/menu.php");
               </div>
               <div class="panel-body">
 
-                <form method="post" class="add_post" action="<?php echo BASE_URL; ?>/addpost/submit">
+                <form method="post" class="add_post" action="<?php echo BASE_URL; ?>/ad/add">
 
                 <div class="row">
                   <div class="col-xs-3">
@@ -30,9 +30,15 @@ include(VIEWS_URL . "/menu.php");
 
                 <div class="row">
                   <div class="col-xs-12">
-                    <select class="client form-control">
+                    <select name="client" class="client form-control">
                       <option></option>
                       <option value='new'>+ New Client</option>
+                      <?php
+                        foreach ($clients as $client)
+                        {
+                            echo "<option value='$client->id'>" . $client->company . "</option>";
+                        }
+                      ?>
                     </select>
                   </div>
                 </div>
@@ -46,7 +52,7 @@ include(VIEWS_URL . "/menu.php");
                 </div>
                   <div class="row" style="margin-bottom:10px;">
                   <div class="col-xs-12">
-                    <input name="start_date" type="text" class="form-control">
+                    <input name="company_name" type="text" class="form-control">
                   </div>
                 </div>
                 <div class="row" style="margin-top:10px;">
@@ -62,10 +68,10 @@ include(VIEWS_URL . "/menu.php");
 
                 <div class="row" style="margin-bottom:10px;">
                   <div class="col-xs-4">
-                    <input name="start_date" type="text" class="form-control">
+                    <input name="first_name" type="text" class="form-control">
                   </div>
                   <div class="col-xs-4">
-                    <input name="end_date" type="text" class="form-control">
+                    <input name="last_name" type="text" class="form-control">
                   </div> 
                 </div>                
 
@@ -78,20 +84,14 @@ include(VIEWS_URL . "/menu.php");
                     <b>Email Address:</b>
                   </div>                  
 
-                  <div class="col-xs-4">
-                    <b>Impressions:</b>
-                  </div>
                 </div>
 
                 <div class="row" style="margin-bottom:10px;">
                   <div class="col-xs-4">
-                    <input name="start_date" type="text" class="form-control">
+                    <input name="phone_number" type="text" class="form-control phone_number">
                   </div>
                   <div class="col-xs-4">
-                    <input name="end_date" type="text" class="form-control">
-                  </div> 
-                  <div class="col-xs-4">
-                    <input name="end_date" type="text" class="form-control">
+                    <input name="email_address" type="text" class="form-control">
                   </div> 
 
                 </div>
@@ -101,7 +101,7 @@ include(VIEWS_URL . "/menu.php");
 
                  <div class="row" style="margin-top:10px;">
                   <div class="col-xs-3">
-                    <b>Add Group:</b>
+                    <b>Ad Group:</b>
                   </div>
 
                   <div class="col-xs-3">
@@ -119,18 +119,25 @@ include(VIEWS_URL . "/menu.php");
 
                 <div class="row" style="margin-bottom:10px;">
                   <div class="col-xs-3">
-                    <select class="form-control">
+                    <select name="ad_group" class="form-control">
                       <option></option>
+                      <?php
+                        foreach($groups as $group)
+                        {
+                          echo "<option value='$group->guid'>" . $group->group_name . "</option>";
+
+                        }
+                      ?>
                     </select>
                   </div>
 
                   <div class="col-xs-3">
-                    <input name="end_date" type="text" class="form-control">
+                    <input name="website_location" type="text" class="form-control">
                   </div>
 
                   <div class="col-xs-3">
 
-                  <select class="form-control">
+                  <select name="max_impressions" class="form-control">
                       <option></option>
                       <?php
                         for($i=1000; $i<=50000; $i+=1000)
@@ -144,15 +151,10 @@ include(VIEWS_URL . "/menu.php");
 
 
                    <div class="col-xs-3">
-                    <input name="end_date" type="text" class="form-control start_date">
+                    <input name="start_date" type="text" class="form-control start_date">
                   </div>
 
-
                 </div>
-
-
-
-
 
                 <div class="alert alert-danger hide empty_fields"><b>Error!</b> Subject or message must be entered.</div>
 
