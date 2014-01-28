@@ -1,6 +1,6 @@
 <?php
 
-$base_url = "ad/admin/";
+$base_url = "AdServerManagement/admin/";
 
 return array(
 

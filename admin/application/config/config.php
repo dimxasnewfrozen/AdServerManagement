@@ -5,7 +5,7 @@
 // Base URL including trailing slash (e.g. http://localhost/)
 $config['app_name']    = APP_NAME;
 $config['app_folder']  = 'pip_mold';
-$config['base_url']    = '/ad/admin';
+$config['base_url']    = '/AdServerManagement/admin';
 $config['view_path']   = APP_DIR . '/views';
 $config['salt'] 	   = "MLaK4F2G";
 /*******************************************/
