@@ -8,6 +8,8 @@ class Ad_model extends Model
 		$query = "select * from ads a
 					left join clients c
 					on a.c_id = c.id
+					left join ad_groups g
+					on a.g_id = g.id
 					order by a.id desc";
 		$result = $this->query($query);
 		if ($result)

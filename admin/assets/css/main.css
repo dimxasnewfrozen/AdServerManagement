@@ -486,3 +486,8 @@ border-color: #924e31 !important; }
   width: 16px;
   height: 16px;
 }
+
+
+.impression_link:hover {
+  text-decoration: none;
+}

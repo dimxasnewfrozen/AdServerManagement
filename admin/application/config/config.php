@@ -17,7 +17,7 @@ $config['img_url'] 	   = $config['base_url']  . '/assets/img';
 $config['min_url'] 	   = $config['base_url']  . '/assets/min';
 
 //$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . '/assets/uploads';
-$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . $config['app_folder'] . "/ads";
+$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . "/" . $config['app_folder'] . "/ads";
 $config['upload_url'] 	= $_SERVER['SERVER_NAME']  . "/" . $config['app_folder'] . "/ads";
 
 

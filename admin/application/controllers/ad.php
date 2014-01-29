@@ -62,7 +62,6 @@ class Ad extends Controller {
 					$file_path = $config['upload_path']. "/" . $filename;
 					$file_link = $config['upload_url']. "/" . $filename;
 
-
 					if ((($_FILES["file"]["type"] == "image/gif")
 					|| ($_FILES["file"]["type"] == "image/jpeg")
 					|| ($_FILES["file"]["type"] == "image/jpg")
@@ -75,12 +74,14 @@ class Ad extends Controller {
 					  	if ($_FILES["file"]["error"] > 0)
 					  	{
 					  		echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+					  		exit;
 					  	}
 					  	else
 					  	{
 						    if (file_exists($file_path))
 						    {
 						      echo $_FILES["file"]["name"] . " already exists.";
+						      exit;
 						    }
 						    else
 						    {
@@ -98,8 +99,6 @@ class Ad extends Controller {
 				else {
 					$file_link = $data['file_location'];
 				}
-				
-
 				
 				$this->ad_model->createAd($client_id, $data, $file_link);
 

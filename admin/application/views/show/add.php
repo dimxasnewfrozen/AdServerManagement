@@ -124,7 +124,7 @@ include(VIEWS_URL . "/menu.php");
                       <?php
                         foreach($groups as $group)
                         {
-                          echo "<option value='$group->guid'>" . $group->group_name . "</option>";
+                          echo "<option value='$group->id'>" . $group->group_name . "</option>";
 
                         }
                       ?>
