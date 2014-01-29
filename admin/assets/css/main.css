@@ -491,3 +491,51 @@ border-color: #924e31 !important; }
 .impression_link:hover {
   text-decoration: none;
 }
+
+.group_link
+{
+  font-size:11px; 
+  margin-right:10px;
+}
+
+.group_link:hover{
+  text-decoration: none;
+}
+
+.stat {
+  padding:20px;
+  height:150px;
+  color:#F7F7F7;
+
+}
+
+.stat.today
+{
+  background-color:#FF6666;
+}
+
+.stat.week
+{
+  background-color:#48587D;
+}
+
+.stat.month
+{
+  background-color:#FFCB59;
+}
+
+.stat.total {
+  background-color: #9ADB5C;
+}
+
+.stat .num {
+  font-size:50px;
+}
+
+.icon
+{
+  float: right;
+  font-size:50px;
+  opacity:0.4;
+  filter:alpha(opacity=40);
+}

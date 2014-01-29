@@ -8,6 +8,10 @@ $config['app_folder']  = 'AdServerManagement';
 $config['base_url']    = '/AdServerManagement/admin';
 $config['view_path']   = APP_DIR . '/views';
 $config['salt'] 	   = "MLaK4F2G";
+
+$protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+
+
 /*******************************************/
 
 // define our asset directories
@@ -18,8 +22,7 @@ $config['min_url'] 	   = $config['base_url']  . '/assets/min';
 
 //$config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . '/assets/uploads';
 $config['upload_path'] 	= $_SERVER['DOCUMENT_ROOT']  . "/" . $config['app_folder'] . "/ads";
-$config['upload_url'] 	= $_SERVER['SERVER_NAME']  . "/" . $config['app_folder'] . "/ads";
-
+$config['upload_url'] 	= $protocol . $_SERVER['SERVER_NAME']  . "/" . $config['app_folder'] . "/ads";
 
 
 /* DATABASE CONNECTION INFO */

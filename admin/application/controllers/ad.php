@@ -132,4 +132,27 @@ class Ad extends Controller {
 
 	}
 
+	public function deleteAd($id)
+	{
+		$this->ad_model->removeAd($id);
+		$this->redirect("/ad");
+	}
+
+	public function stats($id)
+	{ 
+
+		$header = $this->loadView('header');
+		$header->render();
+		$ads = $this->loadView('/show/stats');
+
+		$ad = $this->ad_model->getById($id);
+		$stats = $this->ad_model->generateStats($id);
+
+		$ads->set("ad", $ad);
+		$ads->set("stats", $stats);
+		$ads->set("user", $this->authed_user);
+		$ads->set("current_view", "ads");
+		$ads->render();
+
+	}
 }

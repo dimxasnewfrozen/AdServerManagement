@@ -10,8 +10,8 @@ return array(
         '//' . $base_url .'assets/js/vendor/bootstrap.min.js',
     		'//' . $base_url .'assets/js/main.js'),
 
-    'show' => array(
-        '//' . $base_url .'assets/js/show.js'
+    'groups' => array(
+        '//' . $base_url .'assets/js/groups.js'
       ),
 
     'ad' => array(

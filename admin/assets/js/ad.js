@@ -63,4 +63,46 @@ $(document).ready(function () {
   });
 
 
+
+  $(".add_post").submit(function () {
+
+    if ($(".client").val() == "")
+    {
+      alert("Error. You did not select a client!");
+      return false;
+    }
+
+
+    if ($(".ad_group").val() == "")
+    {
+      alert("Error. You did not select an ad group!");
+      return false;
+    }
+
+    if ($(".website_location").val() == "")
+    {
+      alert("Error. You did not select a website location!");
+      return false;
+    }
+
+
+    if ($(".max_impressions").val() == "")
+    {
+      alert("Error. You did not select the max impressions!");
+      return false;
+    }
+
+
+    if ($(".client").val() == "")
+    {
+      alert("Error. You did not select a client!");
+      return false;
+    }
+
+
+
+
+
+  });
+
 });

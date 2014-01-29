@@ -18,32 +18,41 @@ include(VIEWS_URL . "/menu.php");
 
 
 		<div class="row" >
+			<input type='hidden' class="base_url" value="<?php echo $settings['Base Ad Url']; ?>" />
+
 			<table class="table table-striped" style="margin:10px;">
 				<tr>
-					<th style="width:8%;"></th>
 					<th style="width:18%;">GUID</th>
 					<th>Group Name</th>
 					<th>Size WxH</th>
 				</tr>
 
 				<?php
+				if ($groups)
+				{
 					foreach ($groups as $group)
 					{
 						?>
 							<tr>
-								<td>
-									<a href="#" style="color:red;"><i class="fa fa-trash-o"></i></a>
-									&nbsp;	
-									<a href="#"><i class="fa fa-pencil"></i></a>
-								</td>
-								<td><?php echo $group->guid; ?></td>
+								<td><?php echo $group->guid; ?> <br/>
+									<span><a href="#" class="group_link"><i class="fa fa-pencil"></i> Edit</a></span>
+                          			<span>
+                          				<a href="#" class="group_link modal_code" data-toggle="modal" data-target="#code" 
+                          				width="<?php echo $group->width; ?>"
+                          				height="<?php echo $group->height; ?>"
+                          				guid="<?php echo $group->guid; ?>"
+                          				gname="<?php echo $group->group_name; ?>"
+                          				>
+                          				<i class="fa fa-code"></i> Code </a>
+                          			</span>
+                          			<span><a href="<?php echo BASE_URL; ?>/groups/deleteGroup/<?php echo $group->guid; ?>" class="group_link"><i class="fa fa-times"></i>Delete</a></span></td>
 								<td><?php echo $group->group_name; ?></td>
 								<td><?php echo $group->width; ?> x <?php echo $group->height; ?>px </td>
 
 							</tr>
 						<?php
 					}
-
+				}
 				?>
 
 			</table>
@@ -67,4 +76,25 @@ include(VIEWS_URL . "/menu.php");
 include(VIEWS_URL . "/footer.php");
 ?>
 
-</script>
+
+<div class="modal fade" id="code" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="iframe_content"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+

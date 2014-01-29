@@ -24,11 +24,14 @@ include(VIEWS_URL . "/menu.php");
                 <th>Ad</th>
                 <th>Client</th>
                 <th>Ad Group</th>
-                <th>Max Impressions</th>
-                <th>Current Impressions</th>
+                <th>Max Imp.</th>
+                <th>Impressions</th>
+                <th>Clicks</th>
                 <th>Start Date</th>
               </tr>
               <?php
+              if ($all_ads)
+              {
                 foreach ($all_ads as $ad)
                 {
 
@@ -44,30 +47,43 @@ include(VIEWS_URL . "/menu.php");
                   ?>
                     <tr>
                         <td>
-                          <button class="btn btn-sm" style="width:35px; margin:2px;"><i class="fa fa-pencil"></i></button><br/>
-                          <button class="btn btn-sm btn-warning" style="width:35px; margin:2px;"><i class="fa fa-code"></i></button><br/>
-                          <button class="btn btn-sm btn-danger" style="width:35px; margin:2px;"><i class="fa fa-times"></i></button>
+                          <a class="btn btn-sm btn-default" style="width:35px; margin:2px;"><i class="fa fa-pencil"></i></a><br/>
+                          <a href='<?php echo BASE_URL; ?>/ad/deleteAd/<?php echo $ad->ad_id; ?>' class="btn btn-sm btn-danger" style="width:35px; margin:2px;"><i class="fa fa-times"></i></a>
                         </td>
-                        <td style="width:15%;"><img src='<?php echo $ad->image_src; ?>' style="width:90%;" /></td>
-                        <td><?php echo $ad->company; ?></td>
+                        <td style="width:15%;"><img src='<?php echo $ad->image_src; ?>' style="max-width:120px; max-height:250px;" /></td>
+                        <td><b><?php echo $ad->company; ?></b></td>
                         <td>
                           <?php echo $ad->group_name; ?>
                           <p style="font-size:12px;">(<?php echo $ad->width; ?> x <?php echo $ad->height; ?>)</p>
                         </td>
                         <td><?php echo $ad->impressions;?></td>
                         <td style="font-size:30px;">
-                          <a href="#" class="impression_link">
-                            <span class="label label-info"><i class="fa fa-bar-chart-o" style="font-size:16px;"></i> <?php echo $ad->impressions; ?></span>
+                          <a href="<?php echo BASE_URL; ?>/ad/stats/<?php echo $ad->ad_id;?>" class="impression_link">
+                            <?php
+                              if ($ad->impression_count >= $ad->impressions)
+                              {
+                                ?><span class="label label-danger"><i class="fa fa-bar-chart-o" style="font-size:16px;"></i> <?php echo $ad->impression_count; ?></span><?php
+                              }
+                              else {
+                                ?><span class="label label-info"><i class="fa fa-bar-chart-o" style="font-size:16px;"></i> <?php echo $ad->impression_count; ?></span><?php
+                              }
+                              ?>
                           </a>
                         </td>
-                        <td></td>
+                        <td style="font-size:30px;">
+                          <a href="<?php echo BASE_URL; ?>/ad/stats/<?php echo $ad->ad_id;?>" class="impression_link">
+                            <span class="label label-warning"><i class="fa fa-share" style="font-size:16px;"></i> <?php echo $ad->click_count; ?></span>
+                          </a>
+                        </td>
 
+                        <td><?php echo date('M d, Y', strtotime($ad->start_date)); ?></td>
                     </tr>
 
                   <?php
 
 
                 }
+              }
               ?>
             </table>
           </div>

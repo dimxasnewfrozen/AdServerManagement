@@ -99,7 +99,7 @@ include(VIEWS_URL . "/menu.php");
 
                 <hr>
 
-                 <div class="row" style="margin-top:10px;">
+                <div class="row" style="margin-top:10px;">
                   <div class="col-xs-3">
                     <b>Ad Group:</b>
                   </div>
@@ -119,12 +119,12 @@ include(VIEWS_URL . "/menu.php");
 
                 <div class="row" style="margin-bottom:10px;">
                   <div class="col-xs-3">
-                    <select name="ad_group" class="form-control">
+                    <select name="ad_group" class="ad_group form-control">
                       <option></option>
                       <?php
                         foreach($groups as $group)
                         {
-                          echo "<option value='$group->id'>" . $group->group_name . "</option>";
+                          echo "<option value='$group->id'>" . $group->group_name . " - " . $group->width . "x" . $group->height . "</option>";
 
                         }
                       ?>
@@ -132,12 +132,12 @@ include(VIEWS_URL . "/menu.php");
                   </div>
 
                   <div class="col-xs-3">
-                    <input name="website_location" type="text" class="form-control">
+                    <input name="website_location" type="text" class=" website_location form-control">
                   </div>
 
                   <div class="col-xs-3">
 
-                  <select name="max_impressions" class="form-control">
+                  <select name="max_impressions" class="max_impressions form-control">
                       <option></option>
                       <?php
                         for($i=1000; $i<=50000; $i+=1000)
@@ -151,7 +151,7 @@ include(VIEWS_URL . "/menu.php");
 
 
                   <div class="col-xs-3">
-                    <input name="start_date" type="text" class="form-control start_date">
+                    <input name="start_date" type="text" class="form-control start_date" value="<?php echo date('m/d/Y'); ?>" >
                   </div>
                 </div>
 
@@ -175,7 +175,7 @@ include(VIEWS_URL . "/menu.php");
                   </div>
 
                   <div class="col-xs-6">
-                    <input name="file_location" type="text" class="form-control">
+                    <input name="file_location"  disabled type="text" class="form-control">
                   </div>
                 </div>
 

@@ -13,7 +13,10 @@ class Groups extends Controller {
 	{	
 
 		$group_model = $this->loadModel("group_model");
+		$settings_model = $this->loadModel("settings_model");
+
 		$groups 	 = $group_model->getGroups();
+		$settings 	 = $settings_model->getSettings();
 
 		$header = $this->loadView('header');
 		$header->render();
@@ -21,6 +24,7 @@ class Groups extends Controller {
 		$current->set("current_view", "groups");
 		$current->set("user", $this->authed_user);
 		$current->set("groups", $groups);
+		$current->set("settings", $settings);
 		$current->render();
 
 	}
@@ -65,6 +69,15 @@ class Groups extends Controller {
 		$add_post->set("current_view", "groups");
 
 		$add_post->render();
+	}
+
+	public function deleteGroup($guid) 
+	{
+
+		$group_model = $this->loadModel("group_model");
+		$group_model->removeGroup($guid);
+		$this->redirect("/groups");
+
 	}
 
 }

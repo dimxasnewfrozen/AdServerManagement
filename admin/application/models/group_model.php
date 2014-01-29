@@ -5,7 +5,7 @@ class Group_model extends Model
 	
 	public function getGroups()
 	{
-		$query = "select * from ad_groups";
+		$query = "select * from ad_groups where status = 1";
 		$result = $this->query($query);
 		if ($result)
 			return $result;
@@ -43,6 +43,16 @@ class Group_model extends Model
 		if ($this->execute($query))
 			return "success";					  
 	
+	}
+
+	public function removeGroup($guid)
+	{
+		$guid = $this->escapeString($guid); 
+		$query = "update ad_groups set status = 0 where guid = $guid";
+
+		if ($this->execute($query))
+			return true;			
+
 	}
 
 }
