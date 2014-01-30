@@ -1,68 +1,44 @@
-  <?php
-  include('menu.php');
+<?php include("header.php"); ?>
+<!-- content wrapper to define fullpage or container -->
+<!-- (recomended: dont change the id value) -->
+<section id="wrapper" class="container">
+    <section id="signin" class="sign-wrapper signin transition-layout">
+        <div class="row">
+            <div class="col-md-offset-4 col-sm-offset-0 col-xs-offset-0 col-md-4 col-sm-12 col-xs-12">
+                <div class="sign-brand">
+                    <div class="sign-brand-logo">
+                        <img src="assets/app/img/brand-md.png" alt="Brand"/>
+                    </div>
+                    <h1 class="sign-brand-name">The Mechanicville Mile &nbsp; Ad Manager</h1>
+                </div><!-- /sign-brand -->
+                <div class="sign-container">
 
-  if (!isset($email))
-  {
-    $email = "";
-  }
-  ?>
+                    <?php
+                      if (@$status == "invalid")
+                      {
+                        ?> <large for="email_address" class="help-block text-warning">Invalid email or password.</large><?php
+                      }
+                    ?>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
+                    <form role="form" class="account_form" method="post" action="<?php echo BASE_URL; ?>/login">
+                        <div class="form-group"> 
+                            <input type="text" name="email_address" class="form-control email_address" placeholder="Email" >
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="Password" >
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Log In" >
+                        </div><!-- /form-group -->
+                        <div class="form-group">
+                            <input class="iCheck" id="rememberme" name="rememberme" type="checkbox" checked>
+                            <label class="icheck-label" for="rememberme">Stay sign in</label>
+                        </div><!-- /form-group -->
+                    </form>
+                </div><!-- /sign-container -->
+            </div><!-- /col -->
+        </div><!-- /row -->
 
-        <div class="col-lg-3"></div>        
-
-        <div class="col-lg-5">
-          <div style="height:100%; width:100%; border:1px solid #D1D1D1; background-color:#F5F5F5; margin-top:30px; padding:50px; padding-top:10px;">
-
-            <h3>Sign In </h3>
-
-            <div class="status">
-              <?php
-                switch($status)
-                {
-                  case "invalid":
-                    ?><div class="alert alert-danger"><b>Error!</b> Invalid email address or password. </div><?php
-                  break;
-                }
-              ?>
-            </div>
-
-            <form role="form" class="account_form" method="post" action="<?php echo BASE_URL; ?>/login">
-
-              <div class="form-group">
-                <label>Email Address:</label>
-                <input type="text" name="email_address" class="form-control email_address" >
-              </div>
-
-              <div class="form-group">
-                <label>Password:</label>
-                <input type="password" name="password" class="form-control password" >
-              </div>
-
-              <input type='submit' class="btn btn-warning" style="float:left;"  value="Log in" /><br/>
-
-              <span style="float:right; margin-top:-20px;">
-              <a href='#' style="font-size:12px;">Forgot username </a><br/>
-              <a href='#' style="font-size:12px;">Forgot password </a><br/>
-              </span>
-
-            </form>
-          </div>        
-        </div>
-
-        <div class="col-lg-3"></div>
-      </div>
-
-
-      <hr>
-
-      <footer>
-        <p>&copy; The Mechanicville Mile 2013</p>
-      </footer>
-    </div> <!-- /container -->
-
-  <?php
-  include('footer.php');
-  ?>
+    </section><!-- /signin -->
+</section><!-- /wrapper -->
+<?php include("footer.php"); ?>

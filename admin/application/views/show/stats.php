@@ -1,13 +1,28 @@
-<?php
-include(VIEWS_URL . "/menu.php");
-?>
-<div class="container" style="margin-top:10px;">
-      <!-- Example row of columns -->
-      <div class="row">
+<?php include(VIEWS_URL . "/left_sidebar.php"); ?>
+           <!-- define content theme, use data-swipe="true" to enable gesture event -->
+    <!-- (recomended: dont change the id value) -->
+    <section id="content" class="content">
+        <?php include(VIEWS_URL . "/app_header.php"); ?>
 
-      	<?php include("action_menu.php"); ?>
+        <!-- define content row -->
+        <div class="content-spliter">
+            <!-- define your awesome apps here -->
+            <!-- (recomended: dont change the id value) -->
+            <section id="content-main" class="content-main">
+                
+                <!-- your app content -->
+                <div class="content-app fixed-header">
+                    <!-- app header -->
+                    <div class="app-header">
+                        <h3 class="app-title pull-left hidden-xs">The Mechanicville Mile - Advertising <small>Jan 29, 2013</small></h3>
+                    </div><!-- /app header -->
 
-        <div class="col-lg-10" style="margin-top:10px;">
+                    <!-- app body -->
+                    <div class="app-body">
+
+
+
+					<div class="col-lg-10" style="margin-top:10px;">
 
         	<div class="row">
         		<div class="col-lg-2">

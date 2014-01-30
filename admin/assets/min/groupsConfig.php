@@ -1,15 +1,20 @@
 <?php
 
-$base_url = "AdServerManagement/admin/";
+$base_url = "AdManager2/admin/";
 
 return array(
 
     'main' => array(
         '//' . $base_url .'assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js',
-        '//' . $base_url .'assets/js/vendor/jquery-1.10.1.min.js',
-        '//' . $base_url .'assets/js/vendor/bootstrap.min.js',
-    		'//' . $base_url .'assets/js/main.js'),
-
+        '//' . $base_url .'assets/jquery/jquery.js',
+        '//' . $base_url .'assets/bootstrap/js/bootstrap.min.js',
+        '//' . $base_url .'assets/app/js/dependencies.js',
+        '//' . $base_url .'assets/morris/morris.min.js',
+        '//' . $base_url .'assets/app/js/main.js'
+    ),
+    'dashboard' => array(
+      '//' . $base_url .'assets/js/dashboard.js'
+     ),
     'groups' => array(
         '//' . $base_url .'assets/js/groups.js'
       ),
@@ -24,6 +29,7 @@ return array(
       ),
 
     'login' => array(
+          '//' . $base_url .'assets/jquery-icheck/jquery.icheck.min.js',
           '//' . $base_url .'assets/js/login.js'
       ),
 
@@ -31,13 +37,13 @@ return array(
           '//' . $base_url .'assets/js/account.js'
       ),
 
-
-
     'css' => array(
-    		'//' . $base_url .'assets/css/font-awesome.min.css',
-      	'//' . $base_url .'assets/css/bootstrap.min.css',
-        '//' . $base_url .'assets/css/main.css'
-    	),
+        '//' . $base_url .'assets/bootstrap/css/bootstrap.min.css',
+        '//' . $base_url .'assets/app/css/dependencies.css',
+        '//' . $base_url .'assets/app/css/syrena-admin.css'
+      ),
+
+
 
 );
 

@@ -1,5 +1,12 @@
 $(document).ready(function () {
+  'use strict';
 
+  $('.iCheck').iCheck({
+      checkboxClass: 'icheckbox_flat',
+      radioClass: 'iradio_flat',
+  });
+
+        
   $(".email_address").focus();
 
   $(".account_form").submit( function (e) {

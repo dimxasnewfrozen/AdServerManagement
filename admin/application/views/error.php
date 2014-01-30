@@ -1,22 +1,12 @@
-<?php
-include('menu.php');
-?>
-
-
-<div class="container">
-  <!-- Example row of columns -->
-  <div class="row">
-    <div class="col-lg-12" >
-      <div class="bs-callout bs-callout-danger"><h4>Error!</h4> Page does not exist!</div>
-  </div>
-
-  <hr>
-
-  <footer>
-    <p>&copy; Company 2013</p>
-  </footer>
-</div> <!-- /container -->
-
-<?php
-include('footer.php');
-?>
+<?php include("header.php"); ?>
+<section id="wrapper" class="container">
+    <section class="error-msg">
+        <div class="error-container">
+            <h2 class="error-status">Error <span class="error-code">404</span> <small><strong>Opps!</strong> The page you request was not found</small></h2>
+            <div class="text-center">
+                <a href="<?php echo BASE_URL; ?>" role="button" class="btn btn-ion btn-primary"><i class="icon ion-home"></i> Back to homepage</a>
+            </div>
+        </div><!-- /error-container -->
+    </section><!-- /error-msg -->
+</section><!-- /wrapper -->
+<?php include("footer.php"); ?>

@@ -4,13 +4,13 @@
 // constants are defined in index.php off of the root dir
 // Base URL including trailing slash (e.g. http://localhost/)
 $config['app_name']    = APP_NAME;
-$config['app_folder']  = 'AdServerManagement';
-$config['base_url']    = '/AdServerManagement/admin';
+$config['app_folder']  = 'AdManager2';
+$config['base_url']    = '/AdManager2/admin';
 $config['view_path']   = APP_DIR . '/views';
 $config['salt'] 	   = "MLaK4F2G";
 
 $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-
+$config['assets_path'] 	= $protocol . $_SERVER['SERVER_NAME']  . $config['base_url'] . "/assets/";
 
 /*******************************************/
 

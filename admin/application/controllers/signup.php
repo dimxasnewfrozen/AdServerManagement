@@ -13,7 +13,7 @@ class Signup extends Controller {
 		
 		if (@$this->authed_user[0]->id)
 		{
-			$this->redirect("/ad");
+			$this->redirect("/dashboard");
 		}
 		else {
 			// clear any post data

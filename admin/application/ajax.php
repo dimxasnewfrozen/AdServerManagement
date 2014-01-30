@@ -14,25 +14,20 @@ $request = $_GET['request'];
 
 switch ($request) {
 
-	case "checkActive":
+	case "getOverallImpressions":
 
-		$verification_model = $controller->loadModel("EmailVerification_model");
-		$email = $_GET['email'];
-
-
-		if ($email)
-			if ($verification_model->checkIfActive($email) == 2) {
-				$status = array("status" => "true");
-			}
-			else {
-				$status = array("status" => "false");
-			}
-		else {
-			$status = array("status" => "true");
-		}
+		$ad_model = $controller->loadModel("ad_model");
+		$data = $ad_model->getBarImpressions();
+		echo json_encode($data);
 		
-		echo json_encode($status);
+	break;
 
+	case "getOverallClicks":
+
+		$ad_model = $controller->loadModel("ad_model");
+		$data = $ad_model->getBarClicks();
+		echo json_encode($data);
+		
 	break;
 
 }

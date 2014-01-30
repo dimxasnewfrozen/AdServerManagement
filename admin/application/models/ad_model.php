@@ -109,6 +109,32 @@ class Ad_model extends Model
 
 	}
 
+	public function getBarImpressions()
+	{
+		$query = "select company,
+					(select count(1) from
+					impressions where aid = a.id) as impression_count
+					from ads a
+					left join clients c
+					on a.c_id = c.id
+					where a.status = 1";
+		$result = $this->query($query);
+		return $result;
+	}
+
+	public function getBarClicks()
+	{
+		$query = "select company,
+					(select count(1) from
+					clicks where aid = a.id) as click_count
+					from ads a
+					left join clients c
+					on a.c_id = c.id
+					where a.status = 1";
+		$result = $this->query($query);
+		return $result;
+	}
+
 
 
 }
