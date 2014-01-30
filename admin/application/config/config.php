@@ -38,7 +38,16 @@ $config['db_password']  = ''; // Database password
 $config['default_controller'] = 'signup';
 
 // Controller used for errors (e.g. 404)
-$config['error_controller']   = 'error'; 
+$config['error_controller']   = 'error';
+
+
+$config['controller_titles'] = array("dashboard" => "Advertising Dashboard", 
+								"ad" => "Current Ads", 
+								"groups" => "Ad Groups", 
+								"clients" => "Ad Clients", 
+								"revenue" => "Ad Revenue", 
+								"settings" => "System Settings" );
+
 
 
 

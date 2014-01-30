@@ -36,5 +36,8 @@
     </div><!-- /header actions -->
 
     <!-- your Awesome App title -->
-    <h1 class="content-title"><?php echo CONTORLLER; ?></h1>
+    <?php
+    global $config;
+    ?>
+    <h1 class="content-title"><?php echo $config['controller_titles'][CONTORLLER]; ?></h1>
 </header><!-- /side left -->
